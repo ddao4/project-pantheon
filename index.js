@@ -10,6 +10,8 @@ const app = express();
 mongoose.connect('mongodb://jtemple5:Gt5isboss@ds011785.mlab.com:11785/pantheon_test');
 mongoose.Promise = global.Promise;
 
+app.use(express.static('public'));
+
 // must be before routes because it attaches json to send response
 app.use(bodyParser.json());
 

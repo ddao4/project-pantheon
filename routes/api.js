@@ -5,7 +5,10 @@ const Feat = require('../models/feat');
 
 // get list of feats from the database
 router.get('/feats', function(req, res){
-	res.send({type: 'GET'})
+	// To list all feats
+	Feat.find({}).then(function(feats){
+		res.send(feats);
+	})
 });
 
 // add a new feat to the db
@@ -20,7 +23,11 @@ router.post('/feats', function(req, res){
 
 // update a feat in the db
 router.put('/feats/:id', function(req, res){
-	res.send({type: 'PUT'})
+	Feat.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
+		Feat.findOne({_id: req.params.id}).then(function(feat){
+			res.send(feat);
+		})		
+	});
 });
 
 // delete a feat from the db
