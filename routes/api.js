@@ -8,7 +8,12 @@ router.get('/feats', function(req, res){
 
 // add a new feat to the db
 router.post('/feats', function(req, res){
-	res.send({type: 'POST'})
+	console.log(req.body);
+	res.send({
+		type: 'POST',
+		name: req.body.name,
+		description: req.body.description
+	})
 });
 
 // update a feat in the db

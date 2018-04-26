@@ -1,7 +1,11 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 // set up express app
 const app = express();
+
+// must be before routes because it attaches json to send response
+app.use(bodyParser.json());
 
 // listen for requests
 // if using provided port for something like heroku, it will use process.env.port
