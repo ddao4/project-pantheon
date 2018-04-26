@@ -10,9 +10,5 @@ app.listen(process.env.port || 4000, function(){
 	console.log('Succesfully connected :)');
 })
 
-app.get('/api', function(req, res){
-	console.log('GET request');
-	res.send({
-		name: 'Yoshi'
-	});
-})
+// specify to use routes from api.js in routes folder
+app.use('/api', require('./routes/api'));

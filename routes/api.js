@@ -20,3 +20,6 @@ router.put('/feats/:id', function(req, res){
 router.delete('/feats/:id', function(req, res){
 	res.send({type: 'DELETE'})
 });
+
+// this allows you to export this file for use in other files
+module.exports = router;
