@@ -1,8 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
 
 // set up express app
 const app = express();
+
+// connect to mongodb
+mongoose.connect('mongodb://jtemple5:Gt5isboss@ds011785.mlab.com:11785/pantheon_test');
+mongoose.Promise = global.Promise;
 
 // must be before routes because it attaches json to send response
 app.use(bodyParser.json());
