@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// schema for prereq stats. must come first to use in FeatSchem
+var StatReqSchema = new Schema({
+	stat_type: String,
+	stat_limit: String,
+	is_limit_min: Boolean
+});
+
 // create feat schema & model
 const FeatSchema = new Schema({
 	name: String,
@@ -15,12 +22,9 @@ const FeatSchema = new Schema({
 	description: String
 });
 
-var StatReqSchema = new Schema({
-	stat_type: String,
-	stat_limit: String,
-	is_limit_min: Boolean
-});
 
+// creates variable to access Feat based on the model
 const Feat = mongoose.model('feat', FeatSchema);
 
+// export Feat for use in other files
 module.exports = Feat;
