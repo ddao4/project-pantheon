@@ -12,6 +12,44 @@
 			<div id="feats"></div>
 		</div>
 
+		<!-- class dropdown, seach bar, and search button -->
+		<div class="container-fluid">
+  			<div class="col-md-8 col-md-offset-2 text-center">
+     			 <form class="form-group">
+	                <!-- class select dropdown -->        
+		                <div class="col-md-2 col-xs-4">
+		                  <select class="form-control" id="class-dropdown">
+		                    <option value = "any">Class</option>
+		                    <option value = "Tank">Tank</option>
+		                    <option value = "Team">Team</option>
+		                    <option value = "Mage">Mage</option>
+		                    <option value = "Druid">Druid</option>
+		                    <option value = "Rogue">Rogue</option>
+		                    <option value = "Leader">Leader</option>
+		                    <option value = "Necroli">Necroli</option>
+		                    <option value = "Warrior">Warrior</option>
+		                    <option value = "Ranged">Ranged</option>
+		                    <option value = "Charmer">Charmer</option>
+		                    <option value = "Engineer">Engineer</option>
+		                    <option value = "Gourmet">Gourmet</option>
+		                  </select>
+		                </div>
+	                <!-- feat name search bar -->
+	                <div class="col-md-8 col-xs-4">
+	                  <input id="feat-search-bar" class="search-bar form-control text-center" type="search" placeholder="Feat Name" aria-label="Search">
+	                </div>
+	                <!-- search button -->
+	                <div class="col-md-2 col-xs-4">
+	                  <button class="btn btn-default" type="submit" onclick="ajax_retr_feats();">Search</button>
+	                </div>
+	                <div class="container">
+	                </div>
+      			</form>
+   			 </div>
+ 		 </div>
+
+ 		 
+
 
 
 		<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
