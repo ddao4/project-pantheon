@@ -3,6 +3,7 @@ const router = express.Router();
 // import feat to use in this file
 const Feat = require('../models/feat');
 
+
 // get list of feats from the database
 router.get('/feats', function(req, res){
 	// To list all feats

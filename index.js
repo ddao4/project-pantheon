@@ -1,10 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const ejs = require('ejs');
 
+// import schema for use here
+const FeatSchema = require('./models/feat.js');
 
 // set up express app
 const app = express();
+
+// use ejs as view engine
+app.set('view engine', 'ejs');
 
 // connect to mongodb
 mongoose.connect('mongodb://jtemple5:Gt5isboss@ds011785.mlab.com:11785/pantheon_test');
@@ -15,9 +21,6 @@ mongoose.connection.once('open', function(){
 }).on('error', function(error){
 	console.log("Could not connect to mongo db :(");
 })
-
-// access html frontend/images
-app.use(express.static('public'));
 
 // must be before routes because it attaches json to send response
 app.use(bodyParser.json());
@@ -31,3 +34,16 @@ app.listen(process.env.port || 4000, function(){
 
 // specify to use routes from api.js in routes folder
 app.use('/api', require('./routes/api'));
+
+
+// get request to grab feat
+app.get('/', (req, res)=>{
+
+	FeatSchema.findOne({'name':'Dashing Charm'},(err, name)=>{
+		if (err) throw err;
+		console.log(name);
+		res.render('homepage', name);
+	
+
+	});
+});

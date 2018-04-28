@@ -52,6 +52,30 @@
    			 </div>
  		 </div>
 
+ 		 <!-- Search Results Table -->
+		<div class="container-fluid">
+		  <div class="well">
+		    <div class="table-responsive">
+		      <table class="table">
+		        <thead>
+		          <th scope="col">Class</th>
+		          <th scope="col">Name</th>
+		          <th scope="col">Effect</th>
+		          <th scope="col">Description</th>
+		          <th scope="col">Misc Prereq(s)</th>
+		          <th scope="col">Skill Prereq(s)</th>
+		          <th scope="col">Stat Prereq(s)</th>
+		        </thead>
+		        <tbody>
+		          <!-- Put EJS here -->
+		            <%- include('./templates/search-result-template'); %>
+		        
+		        </tbody>
+		      </table>
+		    </div>
+		  </div>
+		</div>
+
  		 <!-- scripts -->
  		 <script src ="../js/ajax"></script>
 	</body>
