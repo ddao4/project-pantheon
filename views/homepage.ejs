@@ -10,12 +10,9 @@
 			 	 crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<h1 class="container text-center">Pantheon</h1>
-		<div id="homepage">
-			<div id="feats"></div>
-		</div>
 
-		
+		<h1 class="container text-center">Pantheon</h1>
+	
 		<!-- class dropdown, seach bar, and search button -->
 		<div class="container-fluid">
   			<div class="col-md-8 col-md-offset-2 text-center">
@@ -44,7 +41,7 @@
 	                </div>
 	                <!-- search button -->
 	                <div class="col-md-2 col-xs-4">
-	                  <button class="btn btn-default" type="submit" onclick="ajax_retr_feats();">Search</button>
+	                  <button class="btn btn-default" type="submit" onclick="">Search</button>
 	                </div>
 	                <div class="container">
 	                </div>
@@ -65,9 +62,11 @@
 		          <th scope="col">Misc Prereq(s)</th>
 		          <th scope="col">Skill Prereq(s)</th>
 		          <th scope="col">Stat Prereq(s)</th>
+		          <th scope="col">Type</th>
 		        </thead>
 		        <tbody>
 		          <!-- Put EJS here -->
+		    
 		            <%- include('./templates/search-result-template'); %>
 		        
 		        </tbody>
