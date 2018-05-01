@@ -1,13 +1,12 @@
-
-
-<tr>
-            <td><%= school %></td>
-            <td><%= name %></td>
-            <td><%= effect %></td>
-            <td><%= description %></td>
-            <td><%= prereq.misc_req %></td>
-            <td><%= prereq.skill_req %></td>
-            <td><%= prereq.stat_req %></td>
-            <td><%= type %></td>
-           
- </tr>
+ <% feats.forEach ((feat) =>{ %>
+ <tr>
+	<td><%= feat.school %></td>
+	<td><%= feat.name %></td>
+	<td><%= feat.effect %></td>
+	<td><%= feat.description %></td>
+    <td><%= feat.prereq.misc_req %></td>
+    <td><%= feat.prereq.skill_req %></td>
+    <td><%= feat.prereq.stat_req %></td>
+    <td><%= feat.type %></td>
+</tr>
+<% }); %>

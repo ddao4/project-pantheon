@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const ejs = require('ejs');
 
 // import schema for use here
-const FeatSchema = require('./models/feat.js');
+const Feat = require('./models/feat.js');
 
 // set up express app
 const app = express();
@@ -36,14 +36,3 @@ app.listen(process.env.port || 4000, function(){
 app.use('/api', require('./routes/api'));
 
 
-// get request to grab feat
-app.get('/', (req, res)=>{
-
-	FeatSchema.findOne({'name':'Dashing Charm'},(err, name)=>{
-		if (err) throw err;
-		console.log(name);
-		res.render('homepage', name);
-	
-
-	});
-});

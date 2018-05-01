@@ -55,6 +55,7 @@
 		    <div class="table-responsive">
 		      <table class="table">
 		        <thead>
+		        <!-- Table headers -->
 		          <th scope="col">Class</th>
 		          <th scope="col">Name</th>
 		          <th scope="col">Effect</th>
@@ -65,10 +66,8 @@
 		          <th scope="col">Type</th>
 		        </thead>
 		        <tbody>
-		          <!-- Put EJS here -->
-		    
-		            <%- include('./templates/search-result-template'); %>
-		        
+		          <!-- EJS(Embedded JavaScript) that displays search results -->
+	          		<%- include('./templates/search-result-template'); %>
 		        </tbody>
 		      </table>
 		    </div>
