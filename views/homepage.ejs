@@ -3,11 +3,12 @@
 	<head>
 		<title>Pantheon</title>
 		<link href="https://fonts.googleapis.com/css?family=Mina:400,700|Raleway:400,700|Slabo+27px" rel="stylesheet">
-		<link href="/styles.css" rel="stylesheet" type="text/css"/>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="http://code.jquery.com/jquery-3.3.1.min.js"
 			 	 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 			 	 crossorigin="anonymous"></script>
+
 	</head>
 	<body>
 
@@ -16,10 +17,10 @@
 		<!-- class dropdown, seach bar, and search button -->
 		<div class="container-fluid">
   			<div class="col-md-8 col-md-offset-2 text-center">
-     			 <form class="form-group">
+     			 <form id="feat-search-form" method="post" action="/" class="form-group">
 	                <!-- class select dropdown -->        
 		                <div class="col-md-2 col-xs-4">
-		                  <select class="form-control" id="class-dropdown">
+		                  <select id="class-dropdown" type="text" class="form-control" name="feat[school]">
 		                    <option value = "any">Class</option>
 		                    <option value = "Tank">Tank</option>
 		                    <option value = "Team">Team</option>
@@ -37,11 +38,11 @@
 		                </div>
 	                <!-- feat name search bar -->
 	                <div class="col-md-8 col-xs-4">
-	                  <input id="feat-search-bar" class="search-bar form-control text-center" type="search" placeholder="Feat Name" aria-label="Search">
+	                  <input id="feat-search-bar" class="search-bar form-control text-center" type="text" placeholder="Feat Name" name="feat[name]">
 	                </div>
 	                <!-- search button -->
 	                <div class="col-md-2 col-xs-4">
-	                  <button class="btn btn-default" type="submit" onclick="">Search</button>
+	                  <button id="submit-search-button" type="submit" class="btn btn-default">Search</button>
 	                </div>
 	                <div class="container">
 	                </div>
@@ -49,32 +50,75 @@
    			 </div>
  		 </div>
 
- 		 <!-- Search Results Table -->
-		<div class="container-fluid">
-		  <div class="well">
-		    <div class="table-responsive">
-		      <table class="table">
-		        <thead>
-		        <!-- Table headers -->
-		          <th scope="col">Class</th>
-		          <th scope="col">Name</th>
-		          <th scope="col">Effect</th>
-		          <th scope="col">Description</th>
-		          <th scope="col">Misc Prereq(s)</th>
-		          <th scope="col">Skill Prereq(s)</th>
-		          <th scope="col">Stat Prereq(s)</th>
-		          <th scope="col">Type</th>
-		        </thead>
-		        <tbody>
-		          <!-- EJS(Embedded JavaScript) that displays search results -->
-	          		<%- include('./templates/search-result-template'); %>
-		        </tbody>
-		      </table>
-		    </div>
-		  </div>
+
+ 		 <!-- Search Results Table Div -->
+ 		 <div id="search-results-div"">
+
+	 		 <!-- Search Results Table -->
+			<div class="container-fluid">
+			  <div class="well">
+			    <div class="table-responsive">
+			      <table class="table">
+			        <thead>
+			        <!-- Table headers -->
+			          <th scope="col">Class</th>
+			          <th scope="col">Name</th>
+			          <th scope="col">Effect</th>
+			          <th scope="col">Description</th>
+			          <th scope="col">Misc Prereq(s)</th>
+			          <th scope="col">Skill Prereq(s)</th>
+			          <th scope="col">Stat Prereq(s)</th>
+			          <th scope="col">Type</th>
+			        </thead>
+			        <tbody>
+			          <!-- EJS(Embedded JavaScript) that displays search results -->
+		          		<%- include('./templates/search-result-template'); %>
+			        </tbody>
+			      </table>
+			    </div>
+			  </div>
+			</div>
+
 		</div>
 
- 		 <!-- scripts -->
- 		 <script src ="../js/ajax"></script>
+ 		
+ 		<script type="text/javascript" src="/js/grab_feats.js"></script>
+ 		<script src="/routes/api"></script>
+		
+
+		<script>
+			function search_criteria(){
+			
+			  var feat = {
+			    school: $("#class-dropdown").val(),
+			    name: $("#feat-search-bar").val()
+			  };
+			
+			  console.log(feat);
+			
+			 		
+			  $.ajax({
+			    url: window.location.pathname,
+			    type: "POST",
+			    data: $("#feat-search-bar").serialize(),
+			    contentType: "application/json; charset=utf-8",
+			    success: function(data){
+					
+					// possible to-do if can't figure out
+			    	// collects data from res.send in api.js
+			    	// format data collected here
+			    	// set it inside a div
+			    }
+			
+			
+			
+			});
+			
+		}
+
+		</script>
+
+
+
 	</body>
 </html>

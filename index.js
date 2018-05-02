@@ -9,6 +9,9 @@ const Feat = require('./models/feat.js');
 // set up express app
 const app = express();
 
+// middleware that passes our POST data for us, and stores it inside urlencodedParser 
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 // use ejs as view engine
 app.set('view engine', 'ejs');
 
@@ -22,8 +25,12 @@ mongoose.connection.once('open', function(){
 	console.log("Could not connect to mongo db :(");
 })
 
+// support json ecoded bodies
 // must be before routes because it attaches json to send response
 app.use(bodyParser.json());
+
+// support econded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // listen for requests
 // if using provided port for something like heroku, it will use process.env.port
@@ -33,6 +40,20 @@ app.listen(process.env.port || 4000, function(){
 })
 
 // specify to use routes from api.js in routes folder
-app.use('/api', require('./routes/api'));
+app.use('/', require('./routes/api'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
