@@ -42,6 +42,8 @@ app.listen(process.env.port || 4000, function(){
 // specify to use routes from api.js in routes folder
 app.use('/', require('./routes/api'));
 
+app.use(express.static('static'));
+
 
 
 

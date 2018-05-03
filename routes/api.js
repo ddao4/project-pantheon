@@ -13,43 +13,41 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 // must be before routes because it attaches json to send response
 router.use(bodyParser.json());
 
-// support econded bodies
+// support encoded bodies
 router.use(bodyParser.urlencoded({ extended: true }));
 
 
 // get list of feats 
 router.get('/', (req, res)=>{
+
+	res.render('homepage');
+
+	/*
 	//  finds feats, stores in function
-	//if ($("#class-dropdown").value == 'any'){
 		Feat.find({
 			//$text:{$search: $("#feat-search-bar")}
-			//'name': $("#feat-search-bar").val()
 		}).then(function(feat){
-			//console.log(feat);
 			// renders the feats to the homepage, sets function 'feat'(which finds the feats) to array 'feats'
 			res.render('homepage', {feats:feat});
-
 		});
-	//});
+	*/
 });
 
 
 router.post('/', urlencodedParser, function(req,res){
-	console.log('************');
-	console.log(req.body.feat.school);
-	console.log(req.body.feat.name);
-	console.log(req.body.feat);
-	console.log(typeof(req.body.feat.school));
-	console.log(typeof(req.body.feat.name));
-	console.log(typeof(req.body.feat));
-	console.log('************');
-  
-	Feat.find({
-		name: req.body.feat.name,
-		school: req.body.feat.school,
-	}).then(function(feat){
+
+	const query = {}
+	if (req.body.feat.school && req.body.feat.school !=='any') 
+		query.school = req.body.feat.school
+	if (req.body.feat.name)
+		query.name = req.body.feat.name
+	console.log("Attempted query:");
+	console.log(query);
+
+	Feat.find(query).then(function(feat){
 		// use res.send  ??? nate said
-		res.render('homepage', {feats:feat});
+		res.send(feat);
+		
 	});
 });
 

@@ -5,9 +5,8 @@
 		<link href="https://fonts.googleapis.com/css?family=Mina:400,700|Raleway:400,700|Slabo+27px" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-		<script src="http://code.jquery.com/jquery-3.3.1.min.js"
-			 	 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			 	 crossorigin="anonymous"></script>
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+		
 
 	</head>
 	<body>
@@ -42,7 +41,7 @@
 	                </div>
 	                <!-- search button -->
 	                <div class="col-md-2 col-xs-4">
-	                  <button id="submit-search-button" type="submit" class="btn btn-default">Search</button>
+	                  <button id="submit-search-button" type="submit" class="btn btn-default" onclick="QueryFeats()">Search</button>
 	                </div>
 	                <div class="container">
 	                </div>
@@ -50,75 +49,16 @@
    			 </div>
  		 </div>
 
+ 		  <!-- Search Results Table Div -->
+ 		 <div id="search-results-div" style="display:none">
+ 		 	<%- include('./templates/search-results-table'); %>
 
- 		 <!-- Search Results Table Div -->
- 		 <div id="search-results-div"">
+ 		 </div>
 
-	 		 <!-- Search Results Table -->
-			<div class="container-fluid">
-			  <div class="well">
-			    <div class="table-responsive">
-			      <table class="table">
-			        <thead>
-			        <!-- Table headers -->
-			          <th scope="col">Class</th>
-			          <th scope="col">Name</th>
-			          <th scope="col">Effect</th>
-			          <th scope="col">Description</th>
-			          <th scope="col">Misc Prereq(s)</th>
-			          <th scope="col">Skill Prereq(s)</th>
-			          <th scope="col">Stat Prereq(s)</th>
-			          <th scope="col">Type</th>
-			        </thead>
-			        <tbody>
-			          <!-- EJS(Embedded JavaScript) that displays search results -->
-		          		<%- include('./templates/search-result-template'); %>
-			        </tbody>
-			      </table>
-			    </div>
-			  </div>
-			</div>
 
-		</div>
-
- 		
- 		<script type="text/javascript" src="/js/grab_feats.js"></script>
- 		<script src="/routes/api"></script>
+ 	
+ 		<script type="text/javascript" src="javascripts/ajax.js"></script>
 		
-
-		<script>
-			function search_criteria(){
-			
-			  var feat = {
-			    school: $("#class-dropdown").val(),
-			    name: $("#feat-search-bar").val()
-			  };
-			
-			  console.log(feat);
-			
-			 		
-			  $.ajax({
-			    url: window.location.pathname,
-			    type: "POST",
-			    data: $("#feat-search-bar").serialize(),
-			    contentType: "application/json; charset=utf-8",
-			    success: function(data){
-					
-					// possible to-do if can't figure out
-			    	// collects data from res.send in api.js
-			    	// format data collected here
-			    	// set it inside a div
-			    }
-			
-			
-			
-			});
-			
-		}
-
-		</script>
-
-
 
 	</body>
 </html>
