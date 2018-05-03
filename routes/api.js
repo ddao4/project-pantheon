@@ -24,6 +24,7 @@ router.get('/', (req, res)=>{
 });
 
 
+
 router.post('/', function(req,res){
 	// const query = {}
 	// if (req.body.feat.school && req.body.feat.school !=='any') 

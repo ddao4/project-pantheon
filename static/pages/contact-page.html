@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pantheon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/stylesheets/contact-page-styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+
+
+  
+    <header>
+        <img src="/images/Game.jpg" height="350px" width="100%" class="img-responsive">
+        <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+            <!--<a class="navbar-brand">Pantheon</a>-->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+              <!-- <li><a href="statCalculator.html">Stat Calculator</a></li>-->
+              <li><a href="/pages/game-background-page.html">Game Background</a></li>
+              <li><a href="/pages/races-page.html">Races</a></li>
+              <!--<li><a href="articles.html">Articles</a></li>-->
+              <li><a href="/pages/contact-page.html">Contact</a></li>
+           </ul>
+        </div>
+        </div>
+      </nav>
+
+
+      <h1 class="container text-center">Contact Us</h1>
+      </header>
+
+</head>
+<body>
+
+<!--This will controll the Team Photos and Description-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 team-box">
+        <div class="team-img thumbnail">
+            <img src="/images/phil-simon.jpeg" class="img-responsive" width="100%">
+        <div class="team-content">    
+            <h3>Phil Simon</h3>
+            <div class="border-team"></div>
+            <p>Phone: <a href="tel:+15555551212">555-555-1212</a> </p>
+            <p>Email: Simon doesn't like email </p>
+            <div class="social-icons"> 
+               <a href="https://www.facebook.com/arizonastateuniversity/" target="=blank"><i class="fab fa-facebook fa-3x"></i></a>
+               <a href="https://www.plus.google.com" target="=blank"><i class="fab fa-google-plus-square fa-3x"></i></a>
+          </div>
+        </div>
+    </div>
+  </div>
+
+    <!-- end of Team -->
+
+  <div class="row">
+    <div class="col-md-4 team-box">
+        <div class="team-img thumbnail">
+            <img src="/images/phil-simon.jpeg" class="img-responsive" width="100%">
+        <div class="team-content">    
+            <h3>Phil Simon</h3>
+            <div class="border-team"></div>
+            <p>Phone: <a href="tel:+15555551212">555-555-1212</a> </p>
+            <p>Email: Simon likes slack.. </p>
+            <div class="social-icons"> 
+
+               <a href="https://www.facebook.com/arizonastateuniversity/" target="=blank"><i class="fab fa-facebook fa-3x"></i></a>
+               <a href="https://www.plus.google.com" target="=blank"><i class="fab fa-google-plus-square fa-3x"></i></a>
+            </div>
+        </div>
+    </div>
+  </div>
+    <!-- end team member -->
+  <div class="row">
+    <div class="col-md-4 team-box">
+        <div class="team-img thumbnail">
+            <img src="/images/phil-simon.jpeg" class="img-responsive" width="100%">
+        <div class="team-content">    
+            <h3>Phil Simon</h3>
+            <div class="border-team"></div>
+            <p>Phone: <a href="tel:+15555551212">555-555-1212</a> </p>
+            <p>Email: Still email Simon </p>
+            <div class="social-icons"> 
+               <a href="https://www.facebook.com/arizonastateuniversity/" target="=blank"><i class="fab fa-facebook fa-3x"></i></a>
+               <a href="https://www.plus.google.com" target="=blank"><i class="fab fa-google-plus-square fa-3x"></i></a>
+          </div>
+        </div>
+    </div>
+  </div>
+    <!-- end team member -->
+
+  </div>
+</div>
+
+<!--This will controll the user contact portion -->
+  <br>
+  <br>
+  <br>
+
+  <div class="container">
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well well-sm">
+          <form class="form-horizontal" action="contact-form.php" method="post">
+          <fieldset>
+            <legend class="text-center">Contact Us</legend>
+    
+            <!-- Name input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name">Name</label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" placeholder="Your name" class="form-control">
+              </div>
+            </div>
+    
+            <!-- Email input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="email">Your E-mail</label>
+              <div class="col-md-9">
+                <input id="email" name="email" type="text" placeholder="Your email" class="form-control">
+              </div>
+            </div>
+    
+            <!-- Message body -->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message">Your message</label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" placeholder="Please enter your message here..." rows="5"></textarea>
+              </div>
+            </div>
+    
+            <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+        <!-- END OF ROW-->
+  </div>
+  <!-- END OF CONTAINER-->
+</div>
+
+</body>
+</html>
