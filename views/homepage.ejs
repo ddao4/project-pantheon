@@ -3,7 +3,7 @@
 	<head>
 		<title>Pantheon</title>
 		<link href="https://fonts.googleapis.com/css?family=Mina:400,700|Raleway:400,700|Slabo+27px" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+		<link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
 		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
@@ -11,16 +11,18 @@
 	</head>
 	<body>
 
+
+
 		<%- include('./templates/homepage-header'); %>
 
-		<h1 class="container text-center">Pantheon</h1>
+		<h1 id="title-text" class="container text-center">Pantheon</h1>
 	
 		<!-- class dropdown, seach bar, and search button -->
 		<div class="container-fluid col-md-8 col-md-offset-2">
   			<div class="row">
      			 <form id="feat-search-form" method="post" action="/" class="form-group">
 	                <!-- class select dropdown -->       
-		                <div class="col-md-2">
+		                <div class="col-md-2 col-xs-4">
 		                  <select id="class-dropdown" class="form-control" type="text" name="feat[school]">
 		                    <option value = "any">Class</option>
 		                    <option value = "Tank">Tank</option>
@@ -38,12 +40,12 @@
 		                  </select>
 		                </div>
 	                <!-- feat name search bar -->
-	                <div class="col-md-4">
-	                  <input id="feat-search-bar" class="search-bar text-center form-control" type="text" placeholder="Search" name="feat[name]">
+	                <div class="col-md-4 col-xs-8">
+	                  <input id="feat-search-bar" class="search-bar text-center form-control" type="text" placeholder="Search For..." name="feat[name]">
 	                </div>
 
 	                <!-- feat stat type select select dropdown -->
-	                <div class="col-md-2">
+	                <div class="col-md-2 col-xs-4">
 	                	<select id="stat-type-dropdown" class="form-control" name=feat[statType]>
 	                		<option value="any">Stat</option>
 	                		<option value="STR">STR</option>
@@ -56,7 +58,7 @@
 	                </div>
 
 	                <!-- feat stat rank select dropdown -->
-	                <div class="col-md-2">
+	                <div class="col-md-2 col-xs-8">
 	                	<select id="stat-rank-dropdown" class="form-control" name="feat[statRank]">
 	                		<option value="any">Rank</option>
 	                		<option value="S">S</option>
@@ -75,8 +77,8 @@
 	                </div>
 	            
 	                <!-- search button -->
-	                <div class="col-md-2">
-	                  <button id="submit-search-button" type="submit" class="btn btn-default form-control" onclick="QueryFeats()">Search</button>
+	                <div class="col-md-2 col-xs-12">
+	                  <button id="submit-search-button" type="submit" class="btn btn-default form-control" onclick="QueryFeats()">Submit</button>
 	                </div>
 	                <div class="container">
 	                </div>
@@ -97,6 +99,7 @@
  		 	<%- include('./templates/search-results-table'); %>
 
  		 </div>
+
 
 
 

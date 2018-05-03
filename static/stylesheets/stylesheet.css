@@ -1,0 +1,15 @@
+body {
+	background-image: url("/images/dragon2.jpg");
+	height: auto;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+
+
+}
+
+#title-text
+{
+	color:white;
+}
