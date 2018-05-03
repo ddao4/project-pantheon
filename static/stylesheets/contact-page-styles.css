@@ -1,6 +1,12 @@
 
+.contact-header {
+    position: relative;
+
+}
+
+
 .telephone-header {
- 
+    background-image: url("/images/telephone.jpg");
     width: auto;
     height: 100px;
 }
