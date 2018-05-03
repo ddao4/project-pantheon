@@ -25,6 +25,13 @@ mongoose.connection.once('open', function(){
 // must be before routes because it attaches json to send response
 app.use(bodyParser.json());
 
+app.use(express.static('images'));
+
+app.use(express.static('views'));
+app.use(express.static('stylesheet'));
+app.use(express.static('php'));
+app.use(express.static('contact-form.php'));
+
 
 // listen for requests
 // if using provided port for something like heroku, it will use process.env.port
@@ -35,5 +42,6 @@ app.listen(process.env.port || 4000, function(){
 
 // specify to use routes from api.js in routes folder
 app.use('/api', require('./routes/api'));
+
 
 

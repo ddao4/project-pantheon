@@ -12,34 +12,11 @@
 			 	 crossorigin="anonymous">	 	 	
 		</script>
 
-		<header>
-    		<img src="Game.jpg">
-    		<nav class="navbar navbar-inverse">
- 			<div class="container-fluid">
-    		<div class="navbar-header">
-		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>                        
-		      </button>
-      			<a class="navbar-brand">Pantheon</a>
-    		</div>
-    		<div class="collapse navbar-collapse" id="myNavbar">
-      			<ul class="nav navbar-nav">
-			        <li class="active"><a href="html/MainPage.html">Home</a></li>
-			        <li><a href="statCalculator.html">Stat Calculator</a></li>
-			        <<li><a href="characters.html">Characters</a></li>
-			        <li><a href="background.html">Game Background</a></li>
-			        <li><a href="articles.html">Articles</a></li>
-			        <li><a href="Contact.html">Contact</a></li>
-			     </ul>
-    		</div>
-  			</div>
-			</nav>
-  		</header>
+	<!-- EJS(Embedded JavaScript) that displays the header in a clean way -->			
+	<%- include('./templates/header'); %>
+
 	</head>
 	<body>
-
 		<h1 class="container text-center">Pantheon</h1>
 	
 		<!-- class dropdown, seach bar, and search button -->

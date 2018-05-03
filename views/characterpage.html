@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Pantheon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="characterCss.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <header>
+    <img id="header" src="Game.jpg" height="375px" width="100%" class="img-responsive">
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand">Pantheon</a>
+        </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href=homepage.ejs>Home</a></li>
+        <!-- <li><a href="statCalculator.html">Stat Calculator</a></li>-->
+        <li><a href="background.html">Game Background</a></li>
+        <li class="active"><a href="characterpage.html">Characters</a></li>
+        <!--<li><a href="articles.html">Articles</a></li>-->
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      </div>
+      </div>
+    </nav>
+  </header>
+</head>
+<!--
+      <option value = "any">Any</option>
+      <option value = "Tank">Tank</option>
+      <option value = "Team">Team</option>
+      <option value = "Mage">Mage</option>
+      <option value = "Druid">Druid</option>
+      <option value = "Rogue">Rogue</option>
+      <option value = "Leader">Leader</option>
+      <option value = "Necroli">Necroli</option>
+      <option value = "Warrior">Warrior</option>
+      <option value = "Ranged">Ranged</option>
+      <option value = "Charmer">Charmer</option>
+      <option value = "Engineer">Engineer</option>
+      <option value = "Gourmet">Gourmet</option>
+-->
+<body>
+
+  <div class="content">
+        <div class="container">
+            <div class="row">
+                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="character-block">
+                        <div class="character-img">
+                            <img src="https://www.dandwiki.com/w/images/thumb/8/83/426851.jpg/442px-426851.jpg" class="img-responsive" alt="Tank">
+                            <div class="character-content">
+                                <h4 class="text-white mb0">Tank</h4>
+                            </div>
+                            <div class="overlay">
+                                <div class="overlay-text">
+                                    <h3 class="mb0 text-white"><u>Tank</u></h3>
+                                    <p>The Tank is a feared force on the battlefield. They are a stand alone army, no weapons, no backup, no fear, and no holding back. He charges through enemy lines, tearing through them as he passes. The ground shakes at his coming, his presence alone can turn the tide of battle as lesser enemies flee or freeze in fear.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+
+                    <div class="character-block">
+                        <div class="character-img">
+                            <img src="http://25.media.tumblr.com/tumblr_lx73nmlnY21qlfjv8o1_500.jpg" class="img-responsive" alt="Mage">
+                            <div class="character-content">
+                                <h4 class="text-white mb0">Mage</h4>
+                            </div>
+                            <div class="overlay">
+                                <div class="overlay-text">
+                                    <h3 class="mb0 text-white"><u>Mage</u></h3>
+                                    <p>These mages have learned to tap into the resources of the planes themselves and can cast spells without using any of their own power. An endless resevoir of power to smite the enemies that lay before them. These spellcasters develop their own abilities over developing spells and can cast them more powerfully and develop abilities to make the very gods admire their capabilities.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+
+                    <div class="character-block">
+                        <div class="character-img">
+                            <img src="https://i.pinimg.com/736x/f2/c9/94/f2c994e8473fb1393555af6d4b7366fb--shaman-fantasy-character-concept.jpg" alt="Druid">
+                            <div class="character-content">
+                                <h4 class="text-white mb0">Druid</h4>
+                            </div>
+                            <div class="overlay">
+                                <div class="overlay-text">
+                                    <h3 class="mb0 text-white"><u>Druid</u></h3>
+                                    <br>
+                                    <p>Holding high a gnarled staff wreathed with holly, an elf summons the fury of the storm and calls down explosive bolts of lightning to smite the torch-carrying orcs who threaten her forest.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="character-block">
+                        <div class="character-img">
+                            <img src="https://alzrius.files.wordpress.com/2014/07/rogue.jpg" alt="Rogue">
+                            <div class="character-content">
+                                <h4 class="text-white mb0">Rogue</h4>
+                            </div>
+                            <div class="overlay">
+                                <div class="overlay-text">
+                                    <h3 class="mb0 text-white"><u>Rogue</u></h3>
+                                    <p>Favored by rogues, thieves, spies and assassins that operate in dark places, these sought-after sets of black leather armor hail from the Free Cities of Abalon. Superbly light and flexible, this gear allowed the Rogues of Abalon to move in darkness without sight or sound as though they were wearing naught but their own skin.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="character-block">
+                        <div class="character-img">
+                            <img src="https://i.pinimg.com/originals/f4/38/82/f43882ad84c99352cdeebf00500dc7e4.jpg" alt="Warrior">
+                            <div class="character-content">
+                                <h4 class="text-white mb0">Warrior</h4>
+                            </div>
+                            <div class="overlay">
+                                <div class="overlay-text">
+                                    <h3 class="mb0 text-white"><u>Warrior</u></h3>
+                                    <p>The warrior is the basic combatant of the trio of generic classes. He has the fighter's hit points, combat prowess, bonus feats, and weapon selection. Unlike the fighter, the warrior can choose a different array of class skills, can designate any one of his saves as a good save, and can select his bonus feats from the entire list of feats available.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+              <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="character-block">
+                        <div class="character-img">
+                            <img src="https://i.pinimg.com/originals/03/f6/d5/03f6d56c972efe222fee0ffc8846eefe.jpg" alt="Ranged">
+                            <div class="character-content">
+                                <h4 class="text-white mb0">Ranged</h4>
+                            </div>
+                            <div class="overlay">
+                                <div class="overlay-text">
+                                    <h3 class="mb0 text-white"><u>Ranged</u></h3>
+                                    <p>A Ranged class is one who soldiers onward in life with the sole focus of hunting down and exterminating the more exotic type of creatures in this world. A slayer holds much hate in their heart for beasts and such due to a certain event in their pas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
