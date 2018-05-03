@@ -47,10 +47,10 @@ function QueryFeats(){
 								statType = statType.replace(/\"/g, "");
 								statLimit = statLimit.replace(/\"/g, "");
 
-						
+
 								
 
-								statReqCell.innerHTML += min + ' ' + statType + ' ' + statLimit + '\n';			
+								statReqCell.innerHTML += min + ' ' + statType+':' + ' ' + statLimit + '\n';			
 							}
 
 
@@ -64,4 +64,7 @@ function QueryFeats(){
 	}); // end submit function event
 
 }// QueryFeats end
+
+
+
 

@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 
 // middleware that passes our POST data for us, and stores it inside urlencodedParser 
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+//const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // support json ecoded bodies
 // must be before routes because it attaches json to send response
@@ -17,36 +17,46 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
 
-// get list of feats 
 router.get('/', (req, res)=>{
 
 	res.render('homepage');
 
-	/*
-	//  finds feats, stores in function
-		Feat.find({
-			//$text:{$search: $("#feat-search-bar")}
-		}).then(function(feat){
-			// renders the feats to the homepage, sets function 'feat'(which finds the feats) to array 'feats'
-			res.render('homepage', {feats:feat});
-		});
-	*/
 });
 
 
-router.post('/', urlencodedParser, function(req,res){
+router.post('/', function(req,res){
+	// const query = {}
+	// if (req.body.feat.school && req.body.feat.school !=='any') 
+	// 	query.school = req.body.feat.school
+	// if (req.body.feat.name)
+	// 	query.name = req.body.feat.name
 
-	const query = {}
-	if (req.body.feat.school && req.body.feat.school !=='any') 
-		query.school = req.body.feat.school
-	if (req.body.feat.name)
-		query.name = req.body.feat.name
+	var school = req.body.feat.school;
+	var name = req.body.feat.name;
+	var prereq = {}
+	prereq.statType = req.body.feat.statType;
+	prereq.statRank = req.body.feat.statRank;
+
+	
+	if (school != 'any')
+		var query = {$text:{$search:`"${name}" "${school}"`}}
+	else if (school == 'any' && name == '')
+		query = {}
+	else
+		query = {$text:{$search: name}}
+	
+
 	console.log("Attempted query:");
 	console.log(query);
 
+
 	Feat.find(query).then(function(feat){
-		// use res.send  ??? nate said
-		res.send(feat);
+		if (prereq.statType != 'any' && prereq.statRank != 'any'){
+			MatchRequirements(prereq, feat, function(result){
+				res.send(result);
+			})
+		}else
+				res.send(feat);
 		
 	});
 });
@@ -87,6 +97,98 @@ router.delete('/feats/:id', function(req, res){
 		res.send(feat);
 	});
 });
+
+
+function MatchRequirements(prereq, result, callback){
+	var finalResult = [];
+	var indexMeetsSearch = true;
+
+	//iterate through db results
+	for(var i = 0; i < result.length; i++){
+		//just a note, this assumes that every entry has an array, even a blank one, for stat_req
+
+		if(result[i].prereq != null && result[i].prereq.stat_req[0] != null){
+			console.log("Prereq exists");
+			var stat_req = result[i].prereq.stat_req;
+			indexMeetsSearch = true;
+			var j = 0;
+
+			console.log(`searching req: ${result[i].name}`);
+
+			while(indexMeetsSearch && j < stat_req.length) {
+				var stat_type = stat_req[j].stat_type.toUpperCase();
+				var stat_limit = Enumerate(stat_req[j].stat_limit);
+				var isMin = stat_req[j].is_limit_min;
+
+				//only compare STR to STR, not STR to CHA
+				if(prereq.type == stat_type){
+					//check if the limit applies
+					var meetsThisReq = (isMin) ? (stat_limit <= (Enumerate(prereq.limit))) : (stat_limit >= (Enumerate(prereq.limit)));
+					if(!meetsThisReq)
+						indexMeetsSearch = false;
+					else
+						j++;
+				}
+				else
+					j++
+			}// end while
+
+			if(indexMeetsSearch){
+				console.log(`  >  ${result[i].name} pushed to final`);
+				finalResult.push(result[i]);
+			}
+			else
+				console.log(`  >  ${result[i].name} did not qualify.`);
+		}//end if(result[i].stat_req exists)
+
+
+	}//end for
+	
+	callback(finalResult);
+	console.log("sorted result from prereq given.");
+	console.log(finalResult);
+	//return finalResult;
+
+}
+
+function Enumerate(str){
+	var x;
+
+	switch(str){
+		case 'S': x = 75;
+			break;
+		case 'A+': x = 65;
+			break;
+		case 'A': x = 50;
+			break;
+		case 'B+': x = 40;
+			break;
+		case 'B': x = 25;
+			break;
+		case 'C+': x = 10;
+			break;
+		case 'C': x = 0;
+			break;
+		case 'D+': x = -15;
+			break;
+		case 'D': x = -25;
+			break;
+		case 'F+': x = -40;
+			break;
+		case 'F': x = -50;
+			break;
+		case 'F-': x = -75;
+			break;
+		default: x = null;
+			break;
+	}
+
+	return x;
+}
+
+
+
+
 
 // this allows you to export this file for use in other files
 module.exports = router;
