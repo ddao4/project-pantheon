@@ -48,11 +48,16 @@ router.post('/', function(req,res){
 
 	console.log("Attempted query:");
 	console.log(query);
+	console.log(prereq);
+
 
 
 	Feat.find(query).then(function(feat){
 		if (prereq.statType != 'any' && prereq.statRank != 'any'){
 			MatchRequirements(prereq, feat, function(result){
+				console.log("**************************************************");
+				console.log(result);
+				console.log("**************************************************");
 				res.send(result);
 			})
 		}else
@@ -99,6 +104,7 @@ router.delete('/feats/:id', function(req, res){
 });
 
 
+//prereq here is a json object
 function MatchRequirements(prereq, result, callback){
 	var finalResult = [];
 	var indexMeetsSearch = true;
@@ -119,11 +125,21 @@ function MatchRequirements(prereq, result, callback){
 				var stat_type = stat_req[j].stat_type.toUpperCase();
 				var stat_limit = Enumerate(stat_req[j].stat_limit);
 				var isMin = stat_req[j].is_limit_min;
+				console.log("this is the stat_limit ");
+				console.log(stat_req[j].stat_limit);
+				console.log("this is the stat_type: ");
+				console.log(stat_type);
+				
+				var test = Enumerate(stat_req[j].stat_limit);
+				console.log(test+"*********************");
 
 				//only compare STR to STR, not STR to CHA
-				if(prereq.type == stat_type){
+				if(prereq.statType == stat_type){
 					//check if the limit applies
-					var meetsThisReq = (isMin) ? (stat_limit <= (Enumerate(prereq.limit))) : (stat_limit >= (Enumerate(prereq.limit)));
+				
+					console.log(stat_limit);
+
+					var meetsThisReq = (isMin) ? (stat_limit <= (Enumerate(prereq.statRank))) : (stat_limit >= (Enumerate(prereq.statRank)));
 					if(!meetsThisReq)
 						indexMeetsSearch = false;
 					else
@@ -145,9 +161,9 @@ function MatchRequirements(prereq, result, callback){
 	}//end for
 	
 	callback(finalResult);
-	console.log("sorted result from prereq given.");
+	console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 	console.log(finalResult);
-	//return finalResult;
+	console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
 }
 
