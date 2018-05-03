@@ -9,6 +9,14 @@ body {
 
 }
 
+#nav-icon {
+	color: white !important;
+}
+
+.ul-menu-items > li > a {
+	color: white;
+}
+
 #title-text
 {
 	color:white;
